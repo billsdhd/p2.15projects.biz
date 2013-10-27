@@ -10,10 +10,10 @@ $output = array();
 $webroot = $_SERVER['DOCUMENT_ROOT'];
 
 // Execute the shell script
-exec("$webroot/p2.15projects.biz/deploy/pull.sh 2>&1", $output);
+exec("$webroot/deploy/pull.sh 2>&1", $output);
 
 // Set the log file
-$log = "$webroot/p2.15projects.biz/deploy/log.txt";
+$log = "$webroot/deploy/log.txt";
 
 // Get previous log contents so we can prepend
 $log_contents = file_get_contents($log);
