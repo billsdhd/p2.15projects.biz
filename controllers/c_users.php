@@ -73,9 +73,7 @@ class users_controller extends base_controller {
 			FROM users
 			WHERE email = "'.$_POST['email'].'"
 			AND password = "'.$_POST['password'].'"';
-		
-		echo $q;	
-		
+			
 		# If there was, this will return the token	   
 		$token = DB::instance(DB_NAME)->select_field($q);
 		
@@ -122,6 +120,39 @@ class users_controller extends base_controller {
 	/*-------------------------------------------------------------------------------------------------
 	
 	-------------------------------------------------------------------------------------------------*/
+    public function myposts($user_name = NULL) {
+		
+		# Only logged in users are allowed...
+		if(!$this->user) {
+			die('Members only. <a href="/users/login">Login</a>');
+		}
+		
+		# Set up the View
+		$this->template->content = View::instance('v_users_myposts');
+        $this->template->title   = "Posts of ".$this->user->first_name;
+
+				
+       
+        # Build the query for the users posts
+        $q = "SELECT *
+            FROM posts
+            WHERE user_id = ".$this->user->user_id;
+
+        # Execute the query 
+        $posts = DB::instance(DB_NAME)->select_rows($q);
+
+        # Send to the view
+        $this->template->content->posts       = $posts;
+
+        # Render template
+        echo $this->template;
+
+
+    }
+
+	/*-------------------------------------------------------------------------------------------------
+	
+	-------------------------------------------------------------------------------------------------*/
     public function profile($user_name = NULL) {
 		
 		# Only logged in users are allowed...
@@ -131,14 +162,13 @@ class users_controller extends base_controller {
 		
 		# Set up the View
 		$this->template->content = View::instance('v_users_profile');
-		$this->template->title   = "Profile";
-				
-		# Pass the data to the View
-		$this->template->content->user_name = $user_name;
-		
-		# Display the view
-		echo $this->template;
-				
+        $this->template->title   = "Profile of ".$this->user->first_name;
+
+
+        # Render template
+        echo $this->template;
+
+
     }
 
 } # end of the class
