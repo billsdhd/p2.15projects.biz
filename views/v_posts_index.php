@@ -1,15 +1,24 @@
 
 
+		
+		
 <?php if(isset($user)): ?>
 
+<div id="wrapper3">
+	<div id="wrapper-blog" class="container">
+		<div id="post">
+
 <?php foreach($posts as $post): ?>
-	<center>
-	<strong><?=$post['first_name']?> <?=$post['last_name']?> posted on <?=Time::display($post['created'])?></strong><br>
-	<?=$post['content']?><br><br>
-	</center>
+
+			<div class="post"> <span class="date"><?=Time::display($post['created'])?></span> 
+				<h2><?=$post['first_name']?> <?=$post['last_name']?></h2>
+				<p><?=$post['content']?></p>
+			</div>
+
+
 <?php endforeach; ?>
 
-
+</div>
 
 
 

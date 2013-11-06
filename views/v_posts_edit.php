@@ -1,18 +1,27 @@
 <?php if(isset($user)): ?>
 
+<div id="wrapper2">
+	<div id="newsletter" class="container">
+		<div class="title">
+			<h2>Edit your post</h2>
+			<span class="byline">Please type your message in the box blow. Maximum 255 letters</span> </div>
+		<div class="content">
+
 
 <?php foreach($posts as $post): ?>
 
-    <!-- Display Form to Edit Post -->
-        <form method='POST' action="/posts/p_edit/<?=$post['post_id']?>">
-			<center>
-            <h3>Your Edited Post</h3>
-            <textarea name='content' id='content' rows="10" cols="50"><?=$post['content']?> </textarea>
+			<form method='post' action="/posts/p_edit/<?=$post['post_id']?>">
+				<div class="row half">
+					<div class="12u">
+						<textarea name='content' > <?=$post['content']?> </textarea>
+					</div>
+				</div>
+				<div class="row">
+					<input type='Submit' class="button submit" value='Save Post'>
+				</div>
+			</form>
 
-            <br><br>
-            <input type='submit' value='Save Post'>
-			</center>
-        </form> 
+
 <?php endforeach; ?>
 
 

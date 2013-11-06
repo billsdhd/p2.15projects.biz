@@ -187,10 +187,15 @@ class posts_controller extends base_controller {
         # Send the $_POST data into the database, at the row corresponding with post_id (test post_id is 38)
                 DB::instance(DB_NAME)->update("posts", $_POST, "WHERE post_id = ".$post_id);
         
+
+        # Send them back
+            Router::redirect("/users/myposts");
+            
+            
         # Setup view (eventually)
-        $this->template->content = View::instance('v_posts_edit_done');
-        $this->template->title   = "Your Post has been Edited!";
-        echo $this->template;
+        # $this->template->content = View::instance('v_posts_edit_done');
+        # $this->template->title   = "Your Post has been Edited!";
+        # echo $this->template;
 
         }
 
@@ -204,7 +209,7 @@ class posts_controller extends base_controller {
         DB::instance(DB_NAME)->delete('posts', $q);
         
         # Send them back
-            Router::redirect("/users/profile");
+            Router::redirect("/users/myposts");
 
         }
 
