@@ -9,7 +9,7 @@
 				<?php foreach($posts as $post): ?>
 					<div class="post"> 
 						<span class="date">
-							<?=Time::display($post['modified'])?>
+							<?=Time::display($post['created'])?>
 						</span> 
 						<p>
 							<?=$post['content']?>
