@@ -29,6 +29,19 @@ class users_controller extends base_controller {
     Process the sign up form
     -------------------------------------------------------------------------------------------------*/
     public function p_signup() {
+	
+	foreach($_POST as $field => $value) {
+                        if(empty($value)) {
+                Router::redirect("/users/message/Empty Data");			
+                }	};
+
+        $q="SELECT email
+                    FROM users 
+                    WHERE email = '" . $_POST['email'] . "'";
+                $existing_email = DB::instance(DB_NAME)->select_field($q);
+                if($existing_email){
+                Router::redirect("/users/message/Email Exists");			
+                };
 	    	    
 	    # Mark the time
 	    $_POST['created']  = Time::now();
@@ -38,14 +51,16 @@ class users_controller extends base_controller {
 	    
 	    # Create a hashed token
 	    $_POST['token']    = sha1(TOKEN_SALT.$_POST['email'].Utils::generate_random_string());
+
 	    
-	    # Insert the new user    
-	    DB::instance(DB_NAME)->insert_row('users', $_POST);
+	    	# Insert the new user    
+			DB::instance(DB_NAME)->insert_row('users', $_POST);
 	    
-	    # Send them to the login page
-	    Router::redirect('/users/login');
+			# Send them to the login page
+			Router::redirect('/users/login');
 	    
-    }
+	    
+   }
 
 
 	/*-------------------------------------------------------------------------------------------------
@@ -88,7 +103,7 @@ class users_controller extends base_controller {
 		}
 		# Fail
 		else {
-			echo "Login failed! <a href='/users/login'>Try again?</a>";
+                Router::redirect("/users/message/Log in error");			
 		}
 	   
     }
@@ -170,6 +185,28 @@ class users_controller extends base_controller {
 
 
     }
+    
+	/*-------------------------------------------------------------------------------------------------
+	
+	-------------------------------------------------------------------------------------------------*/
+    public function message($message = NULL) {
+		
+		
+		# Set up the View
+		$this->template->content = View::instance('v_users_message');
+        $this->template->title   = $message;
+        
+
+        # Send to the view
+        $this->template->content->message = $message;
+
+
+        # Render template
+        echo $this->template;
+
+
+    }    
+    
 
 } # end of the class
 
