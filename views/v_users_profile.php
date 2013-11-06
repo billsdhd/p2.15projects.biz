@@ -1,5 +1,14 @@
-<?php if(isset($user_name)): ?>
-	<h1>This is the profile for <?=$user_name?></h1>
+<?php if(isset($user)): ?>
+   <h3>My Profile</h3>
+<ul>
+    <p>
+    <strong>First Name:</strong> <?=$user->first_name?><br>
+    <strong>Last Name:</strong> <?=$user->last_name?><br>
+    <strong>Email Address:</strong> <?=$user->email?><br>
+    <strong>Account Created:</strong> <?=Time::display($user->created)?>
+    </p>
+</ul>
 <?php else: ?>
-	<h1>No user has been specified</h1>
+	<h3>No user has been specified</h3>
 <?php endif; ?>
+

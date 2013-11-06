@@ -151,6 +151,64 @@ class posts_controller extends base_controller {
 	
 	}
 	
+
+	/*-------------------------------------------------------------------------------------------------
+	Edits
+	-------------------------------------------------------------------------------------------------*/
+	public function edit($post_id) {
+
+        # Setup the view
+        $this->template->content = View::instance('v_posts_edit');
+        $this->template->title   = "Edit Post";
+
+
+        # Build the query
+        $q = "SELECT *
+            FROM posts
+            WHERE post_id = ".$post_id;
+
+        # Execute the query
+        $posts = DB::instance(DB_NAME)->select_rows($q);
+
+        # Pass it to the view
+        $this->template->content->posts       = $posts;
+
+
+        # Render template
+        echo $this->template;
+
+        }
+
+        public function p_edit($post_id) {
+
+                # update the modified field
+        $_POST['modified'] = Time::now();
+
+        # Send the $_POST data into the database, at the row corresponding with post_id (test post_id is 38)
+                DB::instance(DB_NAME)->update("posts", $_POST, "WHERE post_id = ".$post_id);
+        
+        # Setup view (eventually)
+        $this->template->content = View::instance('v_posts_edit_done');
+        $this->template->title   = "Your Post has been Edited!";
+        echo $this->template;
+
+        }
+
+
+        public function p_delete($post_id) {
+
+                # Query the DB using post_id param
+        $q = "WHERE post_id = ".$post_id;
+
+        # Run the delete query
+        DB::instance(DB_NAME)->delete('posts', $q);
+        
+        # Send them back
+            Router::redirect("/users/profile");
+
+        }
+
+
 	
 	
 } # eoc
