@@ -17,7 +17,8 @@ class users_controller extends base_controller {
     public function signup() {
        
        # Set up the view
-       $this->template->content = View::instance('v_users_signup');
+	   $this->template->content = View::instance('v_users_signup');
+       $this->template->title   = "Sign up";
        
        # Render the view
        echo $this->template;
@@ -31,6 +32,7 @@ class users_controller extends base_controller {
     -------------------------------------------------------------------------------------------------*/
     public function p_signup() {
 	
+		# Check if data is empty on each field
 		foreach($_POST as $field => $value) {
 			if(empty($value)) {
         		Router::redirect("/users/message/Empty Data");			
@@ -47,6 +49,7 @@ class users_controller extends base_controller {
         	FROM users 
             WHERE email = '" . $_POST['email'] . "'";
 
+		# Run SQL
         $existing_email = DB::instance(DB_NAME)->select_field($q);
         
         # If email already exists        
@@ -77,7 +80,11 @@ class users_controller extends base_controller {
 	-------------------------------------------------------------------------------------------------*/
     public function login() {
     
+    	# Set the view
     	$this->template->content = View::instance('v_users_login');    	
+        $this->template->title   = "Log in";
+    	
+    	# Render the view
     	echo $this->template;   
        
     }

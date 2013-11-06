@@ -23,8 +23,11 @@ class posts_controller extends base_controller {
 	-------------------------------------------------------------------------------------------------*/
 	public function add() {
 		
+		# Set the view
 		$this->template->content = View::instance("v_posts_add");
-		
+        $this->template->title   = "Add post";
+
+		# Render the view
 		echo $this->template;
 		
 	}	
@@ -35,12 +38,15 @@ class posts_controller extends base_controller {
 	-------------------------------------------------------------------------------------------------*/
 	public function p_add() {
 		
+		# Setup the data
 		$_POST['user_id']  = $this->user->user_id;
 		$_POST['created']  = Time::now();
 		$_POST['modified'] = Time::now();
 		
+		# Run the SQL
 		DB::instance(DB_NAME)->insert('posts',$_POST);
 		
+		# Redirect to view the posts
 		Router::redirect('/posts/');
 		
 	}
@@ -53,6 +59,7 @@ class posts_controller extends base_controller {
 		
 		# Set up view
 		$this->template->content = View::instance('v_posts_index');
+        $this->template->title   = "Posts";
 		
 		# Set up query
 		$q = 'SELECT 
@@ -90,7 +97,8 @@ class posts_controller extends base_controller {
 		
 		# Set up view
 		$this->template->content = View::instance("v_posts_users");
-		
+        $this->template->title   = "Follow Users ";
+        
 		# Set up query to get all users
 		$q = 'SELECT *
 			FROM users'.' ORDER BY first_name, last_name';
@@ -194,12 +202,7 @@ class posts_controller extends base_controller {
         
 		# Send them back
         Router::redirect("/users/myposts");
-            
-        # Setup view (eventually)
-        # $this->template->content = View::instance('v_posts_edit_done');
-        # $this->template->title   = "Your Post has been Edited!";
-        # echo $this->template;
-
+       
 	}
 
 	/*-------------------------------------------------------------------------------------------------
@@ -215,8 +218,6 @@ class posts_controller extends base_controller {
         
         # Send them back
         Router::redirect("/users/myposts");
-
     }
-
 
 } # eoc
