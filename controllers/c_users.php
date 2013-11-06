@@ -23,7 +23,8 @@ class users_controller extends base_controller {
        echo $this->template;
        
     }
-    
+
+
     
     /*-------------------------------------------------------------------------------------------------
     Process the sign up form
@@ -36,12 +37,19 @@ class users_controller extends base_controller {
 			}
 		};
 
+		# Check the email format
+        if ( !filter_var($email, $_POST['email']) ){
+        	Router::redirect("/users/message/Wrong Email Format");			
+        };
+
+		# SQL for check the email is already exists.
         $q="SELECT email
         	FROM users 
             WHERE email = '" . $_POST['email'] . "'";
 
         $existing_email = DB::instance(DB_NAME)->select_field($q);
-                
+        
+        # If email already exists        
         if($existing_email){
         	Router::redirect("/users/message/Email Exists");			
         };
