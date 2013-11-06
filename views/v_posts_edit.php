@@ -8,18 +8,19 @@
 				</span> 
 			</div>
 			<div class="content">
-			<?php foreach($posts as $post): ?>
-				<form method='post' action="/posts/p_edit/<?=$post['post_id']?>">
-					<div class="row half">
-						<div class="12u">
-							<textarea name='content' > <?=$post['content']?> </textarea>
+				<?php foreach($posts as $post): ?>
+					<form method='post' action="/posts/p_edit/<?=$post['post_id']?>">
+						<div class="row half">
+							<div class="12u">
+								<textarea name='content' > <?=$post['content']?> </textarea>
+							</div>
 						</div>
-					</div>
-					<div class="row">
-						<input type='Submit' class="button submit" value='Save Post'>
-					</div>
-				</form>
-			<?php endforeach; ?>
+						<div class="row">
+							<input type='Submit' class="button submit" value='Save Post'>
+						</div>
+					</form>
+				<?php endforeach; ?>
+			</div>
 		</div>
 	</div>
 <?php else: ?>

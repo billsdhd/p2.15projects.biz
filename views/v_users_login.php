@@ -19,7 +19,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<input type='Submit' class="button submit" value='Log Ing'>
+					<input type='Submit' class="button submit" value='Log In'>
 				</div>
 			</form>
 		</div>
