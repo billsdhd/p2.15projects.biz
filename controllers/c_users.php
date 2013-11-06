@@ -166,6 +166,7 @@ class users_controller extends base_controller {
 				
         # Build the query for the users posts
         $q = "SELECT 	posts.created,
+        				posts.modified,
         				posts.content
             FROM posts
             WHERE user_id = ".$this->user->user_id.' ORDER BY posts.created DESC' ;

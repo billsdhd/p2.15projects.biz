@@ -14,6 +14,7 @@
 						<p>
 							<?=$post['content']?>
 						</p>
+						Last modified : <?=Time::display($post['modified'])?> 
 						<a href='/posts/edit/<?=$post['post_id']?>'>Edit</a> 
 						<a href='/posts/p_delete/<?=$post['post_id']?>'>Delete</a>
 					</div>
