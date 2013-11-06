@@ -93,7 +93,7 @@ class posts_controller extends base_controller {
 		
 		# Set up query to get all users
 		$q = 'SELECT *
-			FROM users';
+			FROM users'.' ORDER BY first_name, last_name';
 			
 		# Run query
 		$users = DB::instance(DB_NAME)->select_rows($q);
