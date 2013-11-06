@@ -151,7 +151,7 @@ class users_controller extends base_controller {
         # Build the query for the users posts
         $q = "SELECT *
             FROM posts
-            WHERE user_id = ".$this->user->user_id;
+            WHERE user_id = ".$this->user->user_id.' ORDER BY posts.created DESC' ;
 
         # Execute the query 
         $posts = DB::instance(DB_NAME)->select_rows($q);
