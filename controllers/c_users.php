@@ -30,18 +30,21 @@ class users_controller extends base_controller {
     -------------------------------------------------------------------------------------------------*/
     public function p_signup() {
 	
-	foreach($_POST as $field => $value) {
-                        if(empty($value)) {
-                Router::redirect("/users/message/Empty Data");			
-                }	};
+		foreach($_POST as $field => $value) {
+			if(empty($value)) {
+        		Router::redirect("/users/message/Empty Data");			
+			}
+		};
 
         $q="SELECT email
-                    FROM users 
-                    WHERE email = '" . $_POST['email'] . "'";
-                $existing_email = DB::instance(DB_NAME)->select_field($q);
-                if($existing_email){
-                Router::redirect("/users/message/Email Exists");			
-                };
+        	FROM users 
+            WHERE email = '" . $_POST['email'] . "'";
+
+        $existing_email = DB::instance(DB_NAME)->select_field($q);
+                
+        if($existing_email){
+        	Router::redirect("/users/message/Email Exists");			
+        };
 	    	    
 	    # Mark the time
 	    $_POST['created']  = Time::now();
@@ -52,15 +55,13 @@ class users_controller extends base_controller {
 	    # Create a hashed token
 	    $_POST['token']    = sha1(TOKEN_SALT.$_POST['email'].Utils::generate_random_string());
 
+	    # Insert the new user    
+		DB::instance(DB_NAME)->insert_row('users', $_POST);
 	    
-	    	# Insert the new user    
-			DB::instance(DB_NAME)->insert_row('users', $_POST);
+		# Send them to the login page
+		Router::redirect('/users/login');
 	    
-			# Send them to the login page
-			Router::redirect('/users/login');
-	    
-	    
-   }
+	}
 
 
 	/*-------------------------------------------------------------------------------------------------
@@ -101,9 +102,10 @@ class users_controller extends base_controller {
 			# Send them to the homepage
 			Router::redirect('/');
 		}
+		
 		# Fail
 		else {
-                Router::redirect("/users/message/Log in error");			
+        	Router::redirect("/users/message/Log in error");			
 		}
 	   
     }
@@ -133,7 +135,7 @@ class users_controller extends base_controller {
     }
 
 	/*-------------------------------------------------------------------------------------------------
-	
+	Shows the user's own posts in a decending order
 	-------------------------------------------------------------------------------------------------*/
     public function myposts($user_name = NULL) {
 		
@@ -147,7 +149,6 @@ class users_controller extends base_controller {
         $this->template->title   = "Posts of ".$this->user->first_name;
 
 				
-       
         # Build the query for the users posts
         $q = "SELECT *
             FROM posts
@@ -162,11 +163,10 @@ class users_controller extends base_controller {
         # Render template
         echo $this->template;
 
-
     }
 
 	/*-------------------------------------------------------------------------------------------------
-	
+	Shows the user's info
 	-------------------------------------------------------------------------------------------------*/
     public function profile($user_name = NULL) {
 		
@@ -183,39 +183,23 @@ class users_controller extends base_controller {
         # Render template
         echo $this->template;
 
-
     }
     
 	/*-------------------------------------------------------------------------------------------------
-	
+	Display the error message	
 	-------------------------------------------------------------------------------------------------*/
     public function message($message = NULL) {
-		
 		
 		# Set up the View
 		$this->template->content = View::instance('v_users_message');
         $this->template->title   = $message;
         
-
         # Send to the view
         $this->template->content->message = $message;
-
 
         # Render template
         echo $this->template;
 
-
     }    
-    
 
 } # end of the class
-
-
-
-
-
-
-
-
-
-

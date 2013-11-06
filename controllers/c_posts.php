@@ -155,7 +155,7 @@ class posts_controller extends base_controller {
 	
 
 	/*-------------------------------------------------------------------------------------------------
-	Edits
+	Edits a post
 	-------------------------------------------------------------------------------------------------*/
 	public function edit($post_id) {
 
@@ -179,43 +179,39 @@ class posts_controller extends base_controller {
         # Render template
         echo $this->template;
 
-        }
+    }
 
-        public function p_edit($post_id) {
+	public function p_edit($post_id) {
 
-                # update the modified field
-        $_POST['modified'] = Time::now();
+        # update the modified field
+		$_POST['modified'] = Time::now();
 
-        # Send the $_POST data into the database, at the row corresponding with post_id (test post_id is 38)
-                DB::instance(DB_NAME)->update("posts", $_POST, "WHERE post_id = ".$post_id);
+		# Send the $_POST data into the database, at the row corresponding with post_id (test post_id is 38)
+        DB::instance(DB_NAME)->update("posts", $_POST, "WHERE post_id = ".$post_id);
         
-
-        # Send them back
-            Router::redirect("/users/myposts");
-            
+		# Send them back
+        Router::redirect("/users/myposts");
             
         # Setup view (eventually)
         # $this->template->content = View::instance('v_posts_edit_done');
         # $this->template->title   = "Your Post has been Edited!";
         # echo $this->template;
 
-        }
+	}
 
 
-        public function p_delete($post_id) {
+    public function p_delete($post_id) {
 
-                # Query the DB using post_id param
+        # Query the DB using post_id param
         $q = "WHERE post_id = ".$post_id;
 
         # Run the delete query
         DB::instance(DB_NAME)->delete('posts', $q);
         
         # Send them back
-            Router::redirect("/users/myposts");
+        Router::redirect("/users/myposts");
 
-        }
+    }
 
 
-	
-	
 } # eoc
