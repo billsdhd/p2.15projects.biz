@@ -1,11 +1,12 @@
-
 <div id="wrapper2">
 	<div id="newsletter" class="container">
 		<div class="title">
 			<h2>Sign Up</h2>
-			<span class="byline">If you already signed up, please log in.</span> </div>
+			<span class="byline">
+				If you already signed up, please log in.
+			</span> 
+		</div>
 		<div class="content">
-		
 			<form method='post' action='/users/p_signup'>
 				<div class="row half">
 					<div class="6u">
@@ -25,8 +26,6 @@
 					<input type='Submit' class="button submit" value='Submit'>
 				</div>
 			</form>
-
-
 		</div>
 	</div>
 </div>

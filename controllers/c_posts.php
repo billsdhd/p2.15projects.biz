@@ -3,7 +3,7 @@
 class posts_controller extends base_controller {
 	
 	/*-------------------------------------------------------------------------------------------------
-	
+	Construct
 	-------------------------------------------------------------------------------------------------*/
 	public function __construct() {
 		
@@ -84,7 +84,7 @@ class posts_controller extends base_controller {
 	
 	
 	/*-------------------------------------------------------------------------------------------------
-	
+	Show list of the users and let the user to follow or un-follow
 	-------------------------------------------------------------------------------------------------*/
 	public function users() {
 		
@@ -181,6 +181,9 @@ class posts_controller extends base_controller {
 
     }
 
+	/*-------------------------------------------------------------------------------------------------
+	Process edit
+	-------------------------------------------------------------------------------------------------*/
 	public function p_edit($post_id) {
 
         # update the modified field
@@ -199,7 +202,9 @@ class posts_controller extends base_controller {
 
 	}
 
-
+	/*-------------------------------------------------------------------------------------------------
+	Process delete
+	-------------------------------------------------------------------------------------------------*/
     public function p_delete($post_id) {
 
         # Query the DB using post_id param
