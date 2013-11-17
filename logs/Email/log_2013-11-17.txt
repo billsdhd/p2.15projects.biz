@@ -1,0 +1,76 @@
+2013-11-17 8:28:33 - INFO --> -------------------------- 
+2013-11-17 8:28:33 - INFO --> Controller/Method: posts/edit 
+2013-11-17 8:28:33 - INFO --> OUTGOING EMAILS ARE DISABLED. THIS EMAIL WAS NOT SENT TO THE RECIPIENTS, ONLY billsdhd@gmail.com 
+2013-11-17 8:28:33 - INFO --> From: Simple Blog (billsdhd@gmail.com) 
+2013-11-17 8:28:33 - INFO --> To: Simple Blog (billsdhd@gmail.com),  
+2013-11-17 8:28:33 - INFO --> CC:  
+2013-11-17 8:28:33 - INFO --> BCC:  
+2013-11-17 8:28:33 - INFO --> Subject: Simple Blog SQL Error 
+2013-11-17 8:28:33 - INFO --> Body: <h2>SQL Error</h2> SELECT *
+            FROM posts
+            WHERE post_id =  You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 3<h2>Query History</h2>0 = SELECT *
+					FROM users
+					WHERE token = '88f 
+2013-11-17 8:28:41 - INFO --> -------------------------- 
+2013-11-17 8:28:41 - INFO --> Controller/Method: posts/p_delete 
+2013-11-17 8:28:41 - INFO --> OUTGOING EMAILS ARE DISABLED. THIS EMAIL WAS NOT SENT TO THE RECIPIENTS, ONLY billsdhd@gmail.com 
+2013-11-17 8:28:41 - INFO --> From: Simple Blog (billsdhd@gmail.com) 
+2013-11-17 8:28:41 - INFO --> To: Simple Blog (billsdhd@gmail.com),  
+2013-11-17 8:28:41 - INFO --> CC:  
+2013-11-17 8:28:41 - INFO --> BCC:  
+2013-11-17 8:28:41 - INFO --> Subject: Simple Blog SQL Error 
+2013-11-17 8:28:41 - INFO --> Body: <h2>SQL Error</h2> DELETE FROM posts WHERE post_id =  You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1<h2>Query History</h2>0 = SELECT *
+					FROM users
+					WHERE token = '88f992f2a64908960c18171888559 
+2013-11-17 8:29:03 - INFO --> -------------------------- 
+2013-11-17 8:29:03 - INFO --> Controller/Method: posts/edit 
+2013-11-17 8:29:03 - INFO --> OUTGOING EMAILS ARE DISABLED. THIS EMAIL WAS NOT SENT TO THE RECIPIENTS, ONLY billsdhd@gmail.com 
+2013-11-17 8:29:03 - INFO --> From: Simple Blog (billsdhd@gmail.com) 
+2013-11-17 8:29:03 - INFO --> To: Simple Blog (billsdhd@gmail.com),  
+2013-11-17 8:29:03 - INFO --> CC:  
+2013-11-17 8:29:03 - INFO --> BCC:  
+2013-11-17 8:29:03 - INFO --> Subject: Simple Blog SQL Error 
+2013-11-17 8:29:03 - INFO --> Body: <h2>SQL Error</h2> SELECT *
+            FROM posts
+            WHERE post_id =  You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 3<h2>Query History</h2>0 = SELECT *
+					FROM users
+					WHERE token = '88f 
+2013-11-17 8:29:29 - INFO --> -------------------------- 
+2013-11-17 8:29:29 - INFO --> Controller/Method: posts/edit 
+2013-11-17 8:29:29 - INFO --> OUTGOING EMAILS ARE DISABLED. THIS EMAIL WAS NOT SENT TO THE RECIPIENTS, ONLY billsdhd@gmail.com 
+2013-11-17 8:29:29 - INFO --> From: Simple Blog (billsdhd@gmail.com) 
+2013-11-17 8:29:29 - INFO --> To: Simple Blog (billsdhd@gmail.com),  
+2013-11-17 8:29:29 - INFO --> CC:  
+2013-11-17 8:29:29 - INFO --> BCC:  
+2013-11-17 8:29:29 - INFO --> Subject: Simple Blog SQL Error 
+2013-11-17 8:29:29 - INFO --> Body: <h2>SQL Error</h2> SELECT *
+            FROM posts
+            WHERE post_id =  You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 3<h2>Query History</h2>0 = SELECT *
+					FROM users
+					WHERE token = '88f 
+2013-11-17 8:35:03 - INFO --> -------------------------- 
+2013-11-17 8:35:03 - INFO --> Controller/Method: posts/edit 
+2013-11-17 8:35:03 - INFO --> OUTGOING EMAILS ARE DISABLED. THIS EMAIL WAS NOT SENT TO THE RECIPIENTS, ONLY billsdhd@gmail.com 
+2013-11-17 8:35:03 - INFO --> From: Simple Blog (billsdhd@gmail.com) 
+2013-11-17 8:35:03 - INFO --> To: Simple Blog (billsdhd@gmail.com),  
+2013-11-17 8:35:03 - INFO --> CC:  
+2013-11-17 8:35:03 - INFO --> BCC:  
+2013-11-17 8:35:03 - INFO --> Subject: Simple Blog SQL Error 
+2013-11-17 8:35:03 - INFO --> Body: <h2>SQL Error</h2> SELECT *
+            FROM posts
+            WHERE post_id =  You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 3<h2>Query History</h2>0 = SELECT *
+					FROM users
+					WHERE token = '88f 
+2013-11-17 8:35:09 - INFO --> -------------------------- 
+2013-11-17 8:35:09 - INFO --> Controller/Method: posts/edit 
+2013-11-17 8:35:09 - INFO --> OUTGOING EMAILS ARE DISABLED. THIS EMAIL WAS NOT SENT TO THE RECIPIENTS, ONLY billsdhd@gmail.com 
+2013-11-17 8:35:09 - INFO --> From: Simple Blog (billsdhd@gmail.com) 
+2013-11-17 8:35:09 - INFO --> To: Simple Blog (billsdhd@gmail.com),  
+2013-11-17 8:35:09 - INFO --> CC:  
+2013-11-17 8:35:09 - INFO --> BCC:  
+2013-11-17 8:35:09 - INFO --> Subject: Simple Blog SQL Error 
+2013-11-17 8:35:09 - INFO --> Body: <h2>SQL Error</h2> SELECT *
+            FROM posts
+            WHERE post_id =  You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 3<h2>Query History</h2>0 = SELECT *
+					FROM users
+					WHERE token = '88f 
